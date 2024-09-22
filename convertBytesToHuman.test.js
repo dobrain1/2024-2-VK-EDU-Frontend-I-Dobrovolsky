@@ -20,6 +20,7 @@ test('Возвращает false для неправильного типа да
 });
 
 test('Возвращает корректное значение для чисел', () => {
+  expect(convertBytesToHuman(-1)).not.toBe('1 B')
   expect(convertBytesToHuman(0)).toBe('0 B')
   expect(convertBytesToHuman(5)).toBe('5 B')
   expect(convertBytesToHuman(1024)).toBe('1 KB')

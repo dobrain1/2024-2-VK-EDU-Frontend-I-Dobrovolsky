@@ -24,6 +24,7 @@ export default function convertBytesToHuman(bytes) {
   }
 
   if (bytes === 0) return "0 B";
+  
   const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
 
   function baseLog(argument, base) {
