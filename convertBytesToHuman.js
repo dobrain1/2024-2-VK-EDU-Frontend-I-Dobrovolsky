@@ -34,7 +34,7 @@ export default function convertBytesToHuman(bytes) {
   const i = baseLog(bytes, 1024);
 
   if (Number.isInteger(i) && i !== 0){
-    return `${i} ${sizes[i]}`;
+    return `1 ${sizes[i]}`;
   }
 
   const bytesAnswer = (bytes / Math.pow(1024, Math.floor(i))).toFixed(2);

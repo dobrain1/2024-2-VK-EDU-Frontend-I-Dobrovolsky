@@ -26,8 +26,7 @@ test('Возвращает корректное значение для чисе
   const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
 
   for (let i = 0 ; i < sizes.length ; i++){
-    if (i === 0) expect(convertBytesToHuman(1)).toBe(`1 ${sizes[i]}`)
-    else expect(convertBytesToHuman(Math.pow(1024, i))).toBe(`${i} ${sizes[i]}`)
+    expect(convertBytesToHuman(Math.pow(1024, i))).toBe(`1 ${sizes[i]}`)
   }
 
   expect(convertBytesToHuman(-1)).not.toBe('1 B')
