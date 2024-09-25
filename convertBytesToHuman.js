@@ -33,7 +33,7 @@ export default function convertBytesToHuman(bytes) {
   
   const i = baseLog(bytes, 1024);
 
-  if (Number.isInteger(i) && i !== 0){
+  if (Number.isInteger(i)){
     return `1 ${sizes[i]}`;
   }
 
