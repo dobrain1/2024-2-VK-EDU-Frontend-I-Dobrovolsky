@@ -26,15 +26,15 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
 
 export default function nonUniqueElements(data) {
 
-  const counter = {};
-  
+  const counter = new Map;
+
   for (let number of data) {
     if (!counter[number]) {
-        counter[number] = 0;
+      counter[number] = 1;
+    } else {
+      counter[number] = true;
     }
-    
-    counter[number] = counter[number] + 1;
   }
 
-  return data.filter(number => counter[number] > 1);
+  return data.filter(number => counter[number] === true);
 }

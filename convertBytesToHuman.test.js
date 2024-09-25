@@ -10,6 +10,8 @@
 import convertBytesToHuman from './convertBytesToHuman';
 
 test('Возвращает false для неправильного типа данных', () => {
+  expect(convertBytesToHuman(Infinity)).toBe(false)
+  expect(convertBytesToHuman('24')).toBe(false)
   expect(convertBytesToHuman(-1)).toBe(false)
   expect(convertBytesToHuman('string')).toBe(false)
   expect(convertBytesToHuman(true)).toBe(false)
@@ -20,6 +22,14 @@ test('Возвращает false для неправильного типа да
 });
 
 test('Возвращает корректное значение для чисел', () => {
+
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+
+  for (let i = 0 ; i < sizes.length ; i++){
+    if (i === 0) expect(convertBytesToHuman(1)).toBe(`1 ${sizes[i]}`)
+    else expect(convertBytesToHuman(Math.pow(1024, i))).toBe(`${i} ${sizes[i]}`)
+  }
+
   expect(convertBytesToHuman(-1)).not.toBe('1 B')
   expect(convertBytesToHuman(0)).toBe('0 B')
   expect(convertBytesToHuman(5)).toBe('5 B')

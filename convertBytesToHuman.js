@@ -19,7 +19,7 @@
 
 export default function convertBytesToHuman(bytes) {
 
-  if (typeof bytes !== "number" || bytes < 0 || Number.isNaN(bytes)) {
+  if (typeof bytes !== "number" || bytes < 0 || !isFinite(bytes)) {
     return false;
   }
 
@@ -31,8 +31,13 @@ export default function convertBytesToHuman(bytes) {
     return Math.log(argument) / Math.log(base);
   }
   
-  const i = Math.floor(baseLog(bytes, 1024));
-  const bytesAnswer = (bytes / Math.pow(1024, i)).toFixed(2);
+  const i = baseLog(bytes, 1024);
+
+  if (Number.isInteger(i) && i !== 0){
+    return `${i} ${sizes[i]}`;
+  }
+
+  const bytesAnswer = (bytes / Math.pow(1024, Math.floor(i))).toFixed(2);
   
-  return `${parseFloat(bytesAnswer)} ${sizes[i]}`;
+  return `${parseFloat(bytesAnswer)} ${sizes[Math.floor(i)]}`;
 }
