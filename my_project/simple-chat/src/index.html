@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title>Send a message</title>
-    </head>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
     <body>
-        <style>
-            .form {
-                width: 100%;
-                display: inline-block;
-                border: 1px solid rgba(25, 25, 25, 0.32);
-            }
+        <div class="main-container">
 
-            .message {
-                color: red;
-                /* border: 1px solid; */
-                border-radius: 4px;
-                margin: 4px 0;
-                padding: 4px;
-            }
+            <div class="chat-header">
+                <span class="back-button material-icons">arrow_back</span>
+                <div class="user-container">
+                    <span class="avatar material-icons">account_circle</span> 
+                    <div class="user-info">
+                        <h2 class="chat-name">Дженнифер</h2>
+                        <span class="last-seen">Был(а) в сети 5 минут назад</span>
+                    </div>
+                </div>
+                <div class="functional-icons">
+                    <span class="search-button material-icons">search</span>
+                    <span class="more-button material-icons">more_vert</span>
+                </div>
+            </div>
 
-            input[type=submit] {
-                visibility: collapse;
-            }
+            <div class="chat-container">
+                <div id="messages-container" class="messages-container">     
 
-            input {
-                border: 0;
-                outline: none;
-                width: calc(100% - 2px);
-            }
-        </style>
-        <form class="form" action="/">
-            <div class="message"></div>
-            <input class="form-input" name="message-text" placeholder="Введите сообщение" type="text">
-        </form>
-        <script>
-            const form = document.querySelector('form');
-            const input = document.querySelector('.form-input');
-            const message = document.querySelector('.message');
+                </div>   
+            </div>
+        
+            <form id="message-form" class="message-form">
+                <textarea id="message-input" class="message-input" placeholder="Введите сообщение" rows="1"></textarea>
+                <input type="file" id="image-input" class="image-input" accept="image/*"">
+                <button type="button" id="image-button" class="image-button material-icons">image</button>
+                <button type="submit" class="send-button material-icons">send</button>
+            </form>
 
-            form.addEventListener('submit', this.handleSubmit.bind(this));
-            form.addEventListener('keypress', this.handleKeyPress.bind(this));
-
-            function handleSubmit (event) {
-                event.preventDefault();
-                message.innerText = input.value;
-            }
-
-            function handleKeyPress (event) {
-                if (event.keyCode === 13) {
-                    form.dispatchEvent(new Event('submit'));
-                }
-            }
-        </script>
+        </div>
     </body>
 </html>
