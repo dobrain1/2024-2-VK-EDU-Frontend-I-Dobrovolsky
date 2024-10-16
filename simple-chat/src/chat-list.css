@@ -28,7 +28,6 @@ button {
     overflow: hidden;
 }
 
-/* Шапка чата */
 .chat-list-header {
     display: flex;
     align-items: center;
