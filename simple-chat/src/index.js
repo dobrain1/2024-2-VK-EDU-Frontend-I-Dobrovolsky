@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatName = chatNameContainer.childNodes[0].textContent
 
     if (chatName.length > 15) {
-        chatNameContainer.childNodes[0].textContent = chatName.slice(0, 13) + "..."
+        chatNameContainer.childNodes[0].textContent = chatName.slice(0, 13) + ".."
     } else {
         chatNameContainer.childNodes[0].textContent = chatName
     }
@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
             defaultMessages.forEach((message) => saveMessage(message));
         }
     };
+
+    initializeDefaultMessages();
+    loadMessages();
 
     const sendMessage = () => {
         const text = messageInput.value.trim();
@@ -107,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    initializeDefaultMessages();
-    loadMessages();
+    document.getElementById('delete-button').addEventListener('click', () => {
+        localStorage.clear();
+        location.reload();
+    });
 });
