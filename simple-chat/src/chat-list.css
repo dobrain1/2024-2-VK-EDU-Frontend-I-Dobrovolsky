@@ -29,7 +29,7 @@ button {
 }
 
 /* Шапка чата */
-.chat-header {
+.chat-list-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
