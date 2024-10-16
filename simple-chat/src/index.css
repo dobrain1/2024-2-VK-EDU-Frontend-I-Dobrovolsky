@@ -59,11 +59,11 @@ button {
 .user-info {
     display: flex;
     flex-direction: column;
+    gap: 2px;
 }
 
 .chat-name {
     font-size: 16px;
-    margin-bottom: 2px;
 }
 
 .last-seen {
