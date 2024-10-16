@@ -37,6 +37,7 @@ button {
     padding-bottom: 10px;
     background-color: #0088cc;
     color: #fff;
+    min-height: 56px;
 }
 
 .back-button, .search-button, .more-button {

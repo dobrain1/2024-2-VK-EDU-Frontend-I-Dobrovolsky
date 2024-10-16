@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageInput = document.getElementById("message-input");
     const imageInput = document.getElementById("image-input");
     const messagesContainer = document.getElementById("messages-container");
+    const backButton = document.getElementById("back-button");
 
     const displayMessage = (message) => {
         const messageElement = document.createElement("div");
