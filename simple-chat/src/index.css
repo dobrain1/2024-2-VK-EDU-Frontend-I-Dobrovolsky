@@ -77,7 +77,8 @@ button {
     padding: 15px;
     overflow-y: scroll; 
     background-color: #e5ddd5;
-    scrollbar-width: none; 
+    scrollbar-width: none;
+    scroll-behavior: smooth; 
 }
 
 .messages-container {

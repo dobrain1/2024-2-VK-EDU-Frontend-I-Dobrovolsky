@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageInput = document.getElementById("message-input");
     const imageInput = document.getElementById("image-input");
     const messagesContainer = document.getElementById("messages-container");
+    const chatContainer = document.getElementById("chat-container");
 
     const chatNameContainer = document.getElementById("chat-name");
     const chatName = chatNameContainer.childNodes[0].textContent
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         messagesContainer.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     };
 
     const loadMessages = () => {
@@ -114,4 +116,5 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.clear();
         location.reload();
     });
+
 });
