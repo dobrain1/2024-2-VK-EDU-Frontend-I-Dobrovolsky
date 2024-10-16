@@ -105,6 +105,10 @@ button {
     width: auto;
 }
 
+.message-content p {
+    white-space: pre-wrap; /* Сохраняет переносы строк и пробелы */
+}
+
 .sender {
     background-color: #dcf8c6;
     margin-left: auto;
