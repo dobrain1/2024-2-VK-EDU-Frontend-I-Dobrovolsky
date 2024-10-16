@@ -9,11 +9,22 @@
     <body>
         <div class="main-container">
 
-            <div id="chat-header" class="chat-header">
-
+            <div class="chat-header">
+                <span class="back-button material-icons">arrow_back</span>
+                <div class="user-container">
+                    <span class="avatar material-icons">account_circle</span> 
+                    <div class="user-info">
+                        <h2 id="chat-name" class="chat-name">Дженнифер Дженнифер Дженнифер Дженнифер</h2>
+                        <span class="last-seen">Был(а) в сети 5 минут назад</span>
+                    </div>
+                </div>
+                <div class="functional-icons">
+                    <span class="search-button material-icons">search</span>
+                    <span class="more-button material-icons">more_vert</span>
+                </div>
             </div>
 
-            <div class="chat-container">
+            <div id="chat-container" class="chat-container">
                 <div id="messages-container" class="messages-container">     
 
                 </div>   
@@ -26,6 +37,10 @@
                 <button type="submit" class="send-button material-icons">send</button>
             </form>
 
+            <button id="delete-button" class="delete-button">
+                <span class="delete-icon material-icons">cancel</span>
+            </button>
+
         </div>
-    <script type="text/javascript" src="index.bundle.js"></script></body>
+    <script type="text/javascript" src="bundle.js"></script></body>
 </html>
