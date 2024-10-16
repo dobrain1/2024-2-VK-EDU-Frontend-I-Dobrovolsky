@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageInput = document.getElementById("image-input");
     const messagesContainer = document.getElementById("messages-container");
 
+    const chatNameContainer = document.getElementById("chat-name");
+    const chatName = chatNameContainer.childNodes[0].textContent
+
+    if (chatName.length > 15) {
+        chatNameContainer.childNodes[0].textContent = chatName.slice(0, 13) + "..."
+    } else {
+        chatNameContainer.childNodes[0].textContent = chatName
+    }
+
     const displayMessage = (message) => {
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
