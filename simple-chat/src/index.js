@@ -1,3 +1,4 @@
+import { ChatHeader } from './components/ChatHeader';
 import './index.css';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -5,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageInput = document.getElementById("message-input");
     const imageInput = document.getElementById("image-input");
     const messagesContainer = document.getElementById("messages-container");
-    const backButton = document.getElementById("back-button");
+    const header = document.getElementById("chat-header");
+
+    header.innerHTML = ChatHeader()
 
     const displayMessage = (message) => {
         const messageElement = document.createElement("div");
