@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageInput = document.getElementById("image-input");
     const messagesContainer = document.getElementById("messages-container");
     const header = document.getElementById("chat-header");
+    const chatContainer = document.getElementById("chat-container");
 
     header.innerHTML = ChatHeader()
 
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         messagesContainer.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     };
 
     const loadMessages = () => {
@@ -104,4 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initializeDefaultMessages();
     loadMessages();
+
+    const chatNameContainer = document.getElementById("chat-name");
+    const chatName = chatNameContainer.childNodes[0].textContent
+
+    if (chatName.length > 15) {
+        chatNameContainer.childNodes[0].textContent = chatName.slice(0, 13) + "..."
+    } else {
+        chatNameContainer.childNodes[0].textContent = chatName
+    }
+
+    document.getElementById('delete-button').addEventListener('click', () => {
+        localStorage.clear();
+        location.reload();
+    });
 });
