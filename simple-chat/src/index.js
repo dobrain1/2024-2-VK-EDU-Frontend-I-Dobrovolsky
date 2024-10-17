@@ -56,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    initializeDefaultMessages();
+    loadMessages();
+
     const sendMessage = () => {
         const text = messageInput.value.trim();
         const message = {
@@ -103,9 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.readAsDataURL(file);
         }
     });
-
-    initializeDefaultMessages();
-    loadMessages();
 
     const chatNameContainer = document.getElementById("chat-name");
     const chatName = chatNameContainer.childNodes[0].textContent
