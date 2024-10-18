@@ -37,18 +37,17 @@ button {
     background-color: #0088cc;
     color: #fff;
     min-height: 56px;
+    gap: 10px;
 }
 
 .burger-button, .search-buttonn {
     color: #fff;
     font-size: 24px;
-    margin: 0 10px;
     cursor: pointer;
 }
 
 .chat-name {
     font-size: 16px;
-    margin-bottom: 2px;
 }
 
 .chat-list-container {
@@ -62,7 +61,6 @@ button {
 .message-time {
     font-size: 12px;
     color: #888;
-    margin-right: 5px;
 }
 
 .new-chat-button {
@@ -80,6 +78,7 @@ button {
 
 .new-chat-icon {
     font-size: 20px;
+    gap: 2px;
 }
 
 .chat-link {
@@ -114,6 +113,7 @@ button {
 .status-time {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .message-count {
