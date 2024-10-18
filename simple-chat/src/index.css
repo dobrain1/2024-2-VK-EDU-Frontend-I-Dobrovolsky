@@ -32,28 +32,28 @@ button {
 .chat-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #0088cc;
     color: #fff;
+    gap: 10px;
 }
 
 .back-button, .search-button, .more-button {
     color: #fff;
     font-size: 24px;
-    margin: 0 10px;
     cursor: pointer;
 }
 
 .avatar {
     font-size: 36px;
-    margin-right: 6px;
 }
 
 .user-container {
     display: flex;
     justify-content: center;
+    gap: 6px;
 }
 
 .user-info {
@@ -86,11 +86,11 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    gap: 6px;
 }
 
 /* Сообщения */
 .message {
-    margin: 6px 0;
     padding: 10px;
     border-radius: 10px;
     width: auto;
@@ -131,13 +131,12 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 5px;
+    gap: 5px;
 }
 
 .message-time {
     font-size: 12px;
     color: #888;
-    margin-right: 5px;
 }
 
 .message-check {
@@ -151,6 +150,7 @@ button {
     padding: 10px;
     border-top: 1px solid #ccc;
     background-color: #f7f7f7;
+    gap: 10px
 }
 
 .message-input {
@@ -170,7 +170,6 @@ button {
 
 .image-button, .send-button {
     font-size: 24px;
-    margin-left: 10px;
     cursor: pointer;
     color: #0088cc;
 }
