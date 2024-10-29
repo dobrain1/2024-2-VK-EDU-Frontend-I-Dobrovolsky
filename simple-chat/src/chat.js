@@ -2,6 +2,10 @@ import { ChatHeader } from './components/ChatHeader';
 import './chat.css';
 
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatNameInfo = urlParams.get('chat');
+    console.log(typeof chatNameInfo)
+
     const messageForm = document.getElementById("message-form");
     const messageInput = document.getElementById("message-input");
     const imageInput = document.getElementById("image-input");
@@ -21,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageElement.classList.add("receiver");
         }
 
-        const time = new Date(message.time).toLocaleTimeString();
+        const time = new Date(message.time).toLocaleTimeString(); 
         messageElement.innerHTML = `
             <div class="message-content">
             ${message.text ? `<p>${message.text}</p>` : `<img src="${message.image}" alt="Image">`}
@@ -38,7 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loadMessages = () => {
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
-        messages.forEach(displayMessage);
+        messages.forEach(message => {
+            if (message.chat === chatNameInfo) {
+                displayMessage(message);
+            }
+        });
     };
 
     const saveMessage = (message) => {
@@ -48,10 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const initializeDefaultMessages = () => {
-        if (!localStorage.getItem("messages")) {
-            const defaultMessages = [
-                { sender: "Собеседник", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString() },
-            ];
+        const defaultMessages = [
+            {sender: "Собеседник", chat: 'User1', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User2', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User3', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+        ];
+        if (localStorage.length === 0){
             defaultMessages.forEach((message) => saveMessage(message));
         }
     };
@@ -63,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const text = messageInput.value.trim();
         const message = {
             sender: "Ваше имя",
+            chat: chatNameInfo,
             text: text,
             time: new Date().toISOString()
         };
@@ -98,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const message = {
                     sender: "Ваше имя",
                     image: reader.result,
+                    chat: chatNameInfo,
                     time: new Date().toISOString()
                 };
                 displayMessage(message);
