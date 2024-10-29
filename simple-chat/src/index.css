@@ -31,7 +31,7 @@ button {
 .chat-list-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #0088cc;
@@ -55,7 +55,8 @@ button {
     padding: 15px;
     overflow-y: scroll; 
     background-color: #e5ddd5;
-    scrollbar-width: none; 
+    scrollbar-width: none;
+    scroll-behavior: smooth; 
 }
 
 .message-time {
@@ -123,4 +124,21 @@ button {
 
 .chat-avatar {
     font-size: 36px;
+}
+
+.delete-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    right: 30px;
+    border: none;
+    color: #0088cc;
+    background-color: none;
+    border-radius: 16px;
+    transform: scale(2.5);
+    cursor: pointer;
+}
+
+.delete-icon {
+    font-size: 20px;
 }
