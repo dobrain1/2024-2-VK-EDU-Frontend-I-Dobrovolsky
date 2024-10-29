@@ -1,35 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-    <body>
-        <div class="main-container">
 
-            <div id="chat-header" class="chat-header">
+<body>
+    <div class="main-container">
 
-            </div>
-
-            <div id="chat-container" class="chat-container">
-                <div id="messages-container" class="messages-container">     
-
-                </div>   
-            </div>
-        
-            <form id="message-form" class="message-form">
-                <textarea id="message-input" class="message-input" placeholder="Введите сообщение" rows="1"></textarea>
-                <input type="file" id="image-input" class="image-input" accept="image/*"">
-                <button type="button" id="image-button" class="image-button material-icons">image</button>
-                <button type="submit" class="send-button material-icons">send</button>
-            </form>
-
-            <button id="delete-button" class="delete-button">
-                <span class="delete-icon material-icons">cancel</span>
-            </button>
+        <div id="chat-list-header" class="chat-header">
 
         </div>
-    </body>
+
+        <div class="chat-list-container">
+            <a class="chat-link" href="chat.html">
+                <div id="chat1" class="chat-item-container chat-container">
+                    <div class="left-container">
+                        <span class="chat-avatar material-icons">account_circle</span>
+                        <div class="chat-info">
+                            <div class="chat-name">Дженнифер</div>
+                            <div class="chat-last-message">Привет</div>
+                        </div>
+                    </div>
+                    <div class="chat-status">
+                        <span class="message-count">20</span>
+                        <div class="status-time">
+                            <span class="message-status material-icons">done</span>
+                            <span class="message-time">08:08</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="chat-link" href="">
+                <div id="chat2" class="chat-item-container chat-container">
+                    <div class="left-container">
+                        <span class="chat-avatar material-icons">account_circle</span>
+                        <div class="chat-info">
+                            <div class="chat-name">Дженнифер</div>
+                            <div class="chat-last-message">Привет</div>
+                        </div>
+                    </div>
+                    <div class="chat-status">
+                        <div class="status-time">
+                            <span class="message-status material-icons">done</span>
+                            <span class="message-time">09:09</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="chat-link" href="">
+                <div id="chat3" class="chat-item-container chat-container">
+                    <div class="left-container">
+                        <span class="chat-avatar material-icons">account_circle</span>
+                        <div class="chat-info">
+                            <div class="chat-name">Дженнифер</div>
+                            <div class="chat-last-message">Привет</div>
+                        </div>
+                    </div>
+                    <div class="chat-status">
+                        <div class="status-time">
+                            <span class="message-status material-icons">done</span>
+                            <span class="message-time">18:08</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <button class="new-chat-button">
+            <span class="new-chat-icon material-icons">edit</span>
+        </button>
+
+    </div>
+</body>
+
 </html>
