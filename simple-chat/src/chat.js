@@ -1,44 +1,22 @@
 import { ChatHeader } from './components/ChatHeader';
 import './chat.css';
+import { displayMessage } from './components/Messages';
+import { MessageForm } from './components/MessageForm';
 
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const chatNameInfo = urlParams.get('chat');
     console.log(typeof chatNameInfo)
+    
 
     const messageForm = document.getElementById("message-form");
+    messageForm.innerHTML = MessageForm();
+
     const messageInput = document.getElementById("message-input");
     const imageInput = document.getElementById("image-input");
-    const messagesContainer = document.getElementById("messages-container");
+    
     const header = document.getElementById("chat-header");
-    const chatContainer = document.getElementById("chat-container");
-
-    header.innerHTML = ChatHeader()
-
-    const displayMessage = (message) => {
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("message");
-
-        if (message.sender === "Ваше имя") {
-            messageElement.classList.add("sender");
-        } else {
-            messageElement.classList.add("receiver");
-        }
-
-        const time = new Date(message.time).toLocaleTimeString(); 
-        messageElement.innerHTML = `
-            <div class="message-content">
-            ${message.text ? `<p>${message.text}</p>` : `<img src="${message.image}" alt="Image">`}
-                <div class="message-info">
-                    <span class="message-time">${time}</span>
-                    ${message.sender === "Ваше имя" ? '<span class="message-check material-icons">done</span>' : ''}
-                </div>
-            </div>
-        `;
-
-        messagesContainer.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-    };
+    header.innerHTML = ChatHeader();
 
     const loadMessages = () => {
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
