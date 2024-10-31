@@ -120,6 +120,7 @@ button {
 .message-count {
     background-color: #b3b3b3;
     border-radius: 4px;
+    padding: 4px;
 }
 
 .chat-avatar {

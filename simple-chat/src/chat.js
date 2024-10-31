@@ -6,8 +6,6 @@ import { MessageForm } from './components/MessageForm';
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const chatNameInfo = urlParams.get('chat');
-    console.log(typeof chatNameInfo)
-    
 
     const messageForm = document.getElementById("message-form");
     messageForm.innerHTML = MessageForm();
