@@ -18,16 +18,6 @@ button {
     background: 0;
 }
 
-.main-container {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    overflow: hidden;
-}
-
 /* Шапка чата */
 .chat-header {
     display: flex;
@@ -45,6 +35,12 @@ button {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
+    border-radius: 20px;
+    padding: 6px;
+}
+
+.back-button:hover, .search-button:hover, .more-button:hover {
+    background-color: #006ba070;
 }
 
 .avatar {
@@ -79,11 +75,13 @@ button {
     overflow-y: scroll; 
     background-color: #e5ddd5;
     scrollbar-width: none;
-    scroll-behavior: smooth;  
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;  
 }
 
 .messages-container {
-    overflow-y: auto; 
+    margin-top: auto; 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -92,13 +90,37 @@ button {
 
 /* Сообщения */
 .message {
+    margin-top: auto;
     padding: 10px;
     border-radius: 10px;
     width: auto;
     max-width: 80%;
     font-size: 15px;
     color: #202020;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+  .message.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .message.animate {
+    animation: fadeInUp 0.5s ease forwards;
+  }
 
 .message-content {
     word-wrap: break-word;
@@ -147,7 +169,7 @@ button {
     padding: 10px;
     border-top: 1px solid #ccc;
     background-color: #f7f7f7;
-    gap: 10px;
+    gap: 4px;
 }
 
 .message-input {
@@ -169,6 +191,13 @@ button {
     font-size: 24px;
     cursor: pointer;
     color: #0088cc;
+    border-radius: 20px;
+    padding: 6px;
+}
+
+.image-button:hover, .send-button:hover {
+    box-sizing: border-box;
+    background-color: #cccccc61;
 }
 
 .message-content p {
@@ -190,7 +219,7 @@ button {
 
 .delete-icon {
     font-size: 20px;
-}
+} 
 * {
     box-sizing: border-box;
     margin: 0;
@@ -212,13 +241,14 @@ button {
 }
 
 .main-container {
-    width: 400px;
+    width: 25%;
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #fff;
     border: 1px solid #ccc;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .chat-list-header {
@@ -233,10 +263,16 @@ button {
     gap: 10px;
 }
 
-.burger-button, .search-buttonn {
+.burger-button{
     color: #fff;
     font-size: 24px;
     cursor: pointer;
+    border-radius: 20px;
+    padding: 6px;
+}
+
+.burger-button:hover {
+    background-color: #006ba070;
 }
 
 .chat-name {
@@ -245,7 +281,7 @@ button {
 
 .chat-list-container {
     flex: 1;
-    padding: 15px;
+    padding: 12px;
     overflow-y: scroll; 
     background-color: #e5ddd5;
     scrollbar-width: none;
@@ -267,7 +303,38 @@ button {
     border-radius: 16px;
     transform: scale(2.5);
     cursor: pointer;
+    animation: pulse 2s infinite;
 }
+
+.new-chat-button-container:hover {
+    animation: none;
+  }
+  
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 #0088cc39;
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 #0088cc39;
+      box-shadow: 0 0 0 0 #0088cc39;
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+  }
 
 .new-chat-icon {
     font-size: 12px;
@@ -286,16 +353,17 @@ button {
     gap: 6px;
 }
 
-#chat1 {
-    border-top: 1px solid;
-
-}
-
 .chat-item-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.chat-item-container:hover {
+    background-color: #20202032;
+    transition: 0.2s;
 }
 
 .chat-status {
