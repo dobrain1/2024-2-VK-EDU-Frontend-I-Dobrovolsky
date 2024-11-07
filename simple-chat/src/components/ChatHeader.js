@@ -1,5 +1,5 @@
 export function ChatHeader() {
-    return `                
+    return `
         <a href="index.html"><span class="back-button material-icons">arrow_back</span></a>
         <div class="user-container">
             <span class="avatar material-icons">account_circle</span> 

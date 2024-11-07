@@ -1,7 +1,7 @@
 export function ChaList() {
-    return `                
+    return `              
             <a class="chat-link" href="chat.html?chat=User1">
-                <div id="chat1" class="chat-item-container chat-container">
+                <div id="chat1" class="chat-item-container">
                     <div class="left-container">
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">
@@ -19,7 +19,7 @@ export function ChaList() {
                 </div>
             </a>
             <a class="chat-link" href="chat.html?chat=User2">
-                <div id="chat2" class="chat-item-container chat-container">
+                <div id="chat2" class="chat-item-container">
                     <div class="left-container">
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">
@@ -37,7 +37,7 @@ export function ChaList() {
                 </div>
             </a>
             <a class="chat-link" href="chat.html?chat=User3">
-                <div id="chat3" class="chat-item-container chat-container">
+                <div id="chat3" class="chat-item-container">
                     <div class="left-container">
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">

@@ -22,6 +22,8 @@ export function displayMessage(message) {
             </div>
         </div>
     `;
+    messageElement.classList.add("show");
+    messageElement.classList.add("animate");
 
     messagesContainer.appendChild(messageElement);
     chatContainer.scrollTop = chatContainer.scrollHeight;

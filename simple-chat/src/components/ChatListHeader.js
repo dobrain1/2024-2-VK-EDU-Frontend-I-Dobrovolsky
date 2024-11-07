@@ -1,6 +1,8 @@
 export function ChatListHeader() {
-    return `                
-        <span class="burger-button material-icons">menu</span>
+    return ` 
+        <div class="burger-button material-icons">
+            menu
+        </div>               
         <div class="user-container">
             <h2>Messanger app</h2>
         </div>
