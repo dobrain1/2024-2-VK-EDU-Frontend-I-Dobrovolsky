@@ -6,7 +6,7 @@ export function ChaList() {
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">
                             <div id="chat1Name" class="chat-name">Дженнифер Дженнифер</div>
-                            <div id="chat1-last-message" class="chat-last-message">last message</div>
+                            <div id="chat1-last-message" class="chat-last-message"></div>
                         </div>
                     </div>
                     <div class="chat-status">
@@ -24,7 +24,7 @@ export function ChaList() {
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">
                             <div id="chat2Name" class="chat-name">Дженнифер Дженнифер</div>
-                            <div id="chat2-last-message" class="chat-last-message">Привет</div>
+                            <div id="chat2-last-message" class="chat-last-message"></div>
                         </div>
                     </div>
                     <div class="chat-status">
@@ -42,7 +42,7 @@ export function ChaList() {
                         <span class="chat-avatar material-icons">account_circle</span>
                         <div class="chat-info">
                             <div id="chat3Name" class="chat-name">Дженнифер Дженнифер</div>
-                            <div id="chat3-last-message" class="chat-last-message">Привет</div>
+                            <div id="chat3-last-message" class="chat-last-message"></div>
                         </div>
                     </div>
                     <div class="chat-status">
