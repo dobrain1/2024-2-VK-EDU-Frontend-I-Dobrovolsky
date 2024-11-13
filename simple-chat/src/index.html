@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-    <body>
-        <div class="main-container">
 
-            <div class="chat-header">
-                <span class="back-button material-icons">arrow_back</span>
-                <div class="user-container">
-                    <span class="avatar material-icons">account_circle</span> 
-                    <div class="user-info">
-                        <h2 id="chat-name" class="chat-name">Дженнифер Дженнифер Дженнифер Дженнифер</h2>
-                        <span class="last-seen">Был(а) в сети 5 минут назад</span>
-                    </div>
-                </div>
-                <div class="functional-icons">
-                    <span class="search-button material-icons">search</span>
-                    <span class="more-button material-icons">more_vert</span>
-                </div>
-            </div>
+<body>
+    <div class="main-container">
 
-            <div id="chat-container" class="chat-container">
-                <div id="messages-container" class="messages-container">     
-
-                </div>   
-            </div>
-        
-            <form id="message-form" class="message-form">
-                <textarea id="message-input" class="message-input" placeholder="Введите сообщение" rows="1"></textarea>
-                <input type="file" id="image-input" class="image-input" accept="image/*"">
-                <button type="button" id="image-button" class="image-button material-icons">image</button>
-                <button type="submit" class="send-button material-icons">send</button>
-            </form>
-
-            <button id="delete-button" class="delete-button">
-                <span class="delete-icon material-icons">cancel</span>
-            </button>
+        <div id="chat-list-header" class="chat-header">
 
         </div>
-    </body>
+
+        <div id="chat-list-container" class="chat-list-container">
+
+        </div>
+
+        <div id="new-chat-button-container" class="new-chat-button-container">
+
+        </div>
+
+        <button id="add-default-messages" class="delete-button">
+            <span class="delete-icon material-icons">question_answer</span>
+            <!-- <span class="delete-icon material-icons">cancel</span> -->
+        </button>
+    </div>
+</body>
+
 </html>

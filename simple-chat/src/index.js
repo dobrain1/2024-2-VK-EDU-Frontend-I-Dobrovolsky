@@ -1,50 +1,86 @@
+import { ChaList } from './components/ChatList';
+import { ChatListHeader } from './components/ChatListHeader';
+import { NewChatButton } from './components/newChatButton';
+
 import './index.css';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const messageForm = document.getElementById("message-form");
-    const messageInput = document.getElementById("message-input");
-    const imageInput = document.getElementById("image-input");
-    const messagesContainer = document.getElementById("messages-container");
-    const chatContainer = document.getElementById("chat-container");
+    const listHeader = document.getElementById("chat-list-header");
+    listHeader.innerHTML = ChatListHeader();
 
-    const chatNameContainer = document.getElementById("chat-name");
-    const chatName = chatNameContainer.childNodes[0].textContent
+    const newChatButtonContainer = document.getElementById("new-chat-button-container");
+    newChatButtonContainer.innerHTML = NewChatButton();
 
-    if (chatName.length > 15) {
-        chatNameContainer.childNodes[0].textContent = chatName.slice(0, 13) + ".."
-    } else {
-        chatNameContainer.childNodes[0].textContent = chatName
+    const chatList = document.getElementById("chat-list-container");
+    chatList.innerHTML = ChaList();
+
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    function userMessages(User) {
+        return messages.filter(message => message.chat === User);
     }
 
-    const displayMessage = (message) => {
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("message");
+    const User1Messages = userMessages('User1');
+    const User2Messages = userMessages('User2');
+    const User3Messages = userMessages('User3');
 
-        if (message.sender === "Ваше имя") {
-            messageElement.classList.add("sender");
+    const User1MessagesCount = User1Messages.length;
+    const User2MessagesCount = User2Messages.length;
+    const User3MessagesCount = User3Messages.length;
+
+    const user1MessageCount = document.getElementById("user1-message-count");
+    const user2MessageCount = document.getElementById("user2-message-count");
+    const user3MessageCount = document.getElementById("user3-message-count");
+
+    user1MessageCount.innerText = User1MessagesCount;
+    user2MessageCount.innerText = User2MessagesCount;
+    user3MessageCount.innerText = User3MessagesCount;
+
+    const User1LastMessageContainer = document.getElementById("chat1-last-message");
+    const User2LastMessageContainer = document.getElementById("chat2-last-message");
+    const User3LastMessageContainer = document.getElementById("chat3-last-message");
+
+    const User1LastMessage = User1Messages.length > 0 
+        ? (User1Messages[User1Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
+    const User2LastMessage = User2Messages.length > 0 
+        ? (User2Messages[User2Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
+    const User3LastMessage = User3Messages.length > 0 
+        ? (User3Messages[User3Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
+
+    User1LastMessageContainer.innerText = User1LastMessage;
+    User2LastMessageContainer.innerText = User2LastMessage;
+    User3LastMessageContainer.innerText = User3LastMessage;
+
+    const shortName = (Message, MessageContainer) => {
+        if (Message.length > 8) {
+            MessageContainer.innerText = Message.replace(/\n/g, ' ').slice(0, 8) + "...";
+        } else if (!Message) {
+            MessageContainer.innerText = "картинка";
         } else {
-            messageElement.classList.add("receiver");
+            MessageContainer.innerText = Message;
         }
-
-        const time = new Date(message.time).toLocaleTimeString();
-        messageElement.innerHTML = `
-            <div class="message-content">
-            ${message.text ? `<p>${message.text}</p>` : `<img src="${message.image}" alt="Image">`}
-                <div class="message-info">
-                    <span class="message-time">${time}</span>
-                    ${message.sender === "Ваше имя" ? '<span class="message-check material-icons">done</span>' : ''}
-                </div>
-            </div>
-        `;
-
-        messagesContainer.appendChild(messageElement);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
     };
 
-    const loadMessages = () => {
-        const messages = JSON.parse(localStorage.getItem("messages")) || [];
-        messages.forEach(displayMessage);
+    shortName(User1LastMessage, User1LastMessageContainer);
+    shortName(User2LastMessage, User2LastMessageContainer);
+    shortName(User3LastMessage, User3LastMessageContainer);
+
+    const chat1Name = document.getElementById("chat1Name");
+    const chat2Name = document.getElementById("chat2Name");
+    const chat3Name = document.getElementById("chat3Name");
+
+    const shortChatName = (chatContainer) => {
+        if (chatContainer.innerText.length > 12) {
+            chatContainer.innerText = chatContainer.innerText.slice(0, 12) + "...";
+        }
     };
+
+    shortChatName(chat1Name);
+    shortChatName(chat2Name);
+    shortChatName(chat3Name);
 
     const saveMessage = (message) => {
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
@@ -53,67 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const initializeDefaultMessages = () => {
-        if (!localStorage.getItem("messages")) {
-            const defaultMessages = [
-                { sender: "Собеседник", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString() },
-            ];
-            defaultMessages.forEach((message) => saveMessage(message));
-        }
+        const defaultMessages = [
+            {sender: "Собеседник", chat: 'User1', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User2', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User3', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+        ];
+        defaultMessages.forEach((message) => saveMessage(message));
     };
 
-    initializeDefaultMessages();
-    loadMessages();
-
-    const sendMessage = () => {
-        const text = messageInput.value.trim();
-        const message = {
-            sender: "Ваше имя",
-            text: text,
-            time: new Date().toISOString()
-        };
-
-        if (text) {
-            displayMessage(message);
-            saveMessage(message);
-            messageInput.value = "";
-        }
-    };
-
-    messageForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        sendMessage();
-    });
-
-    messageInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
-    });
-
-    document.getElementById("image-button").addEventListener("click", () => {
-        imageInput.click();
-    });
-
-    imageInput.addEventListener("change", () => {
-        const file = imageInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                const message = {
-                    sender: "Ваше имя",
-                    image: reader.result,
-                    time: new Date().toISOString()
-                };
-                displayMessage(message);
-                saveMessage(message);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    document.getElementById('delete-button').addEventListener('click', () => {
-        localStorage.clear();
+    document.getElementById('add-default-messages').addEventListener('click', () => {
+        initializeDefaultMessages();
         location.reload();
     });
 
