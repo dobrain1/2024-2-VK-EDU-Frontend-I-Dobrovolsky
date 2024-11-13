@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import ChatListPage from '../pages/ChatListPage'
-import ChatPage from '../pages/ChatPage'
-import ErrorPage from '../pages/ErrorPage'
+import ChatListPage from '../pages/ChatListPage/ChatListPage'
+import ChatPage from '../pages/ChatPage/ChatPage'
+import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import './App.scss'
 
 function App() {
