@@ -101,6 +101,5 @@ document.addEventListener("DOMContentLoaded", () => {
         initializeDefaultMessages();
         location.reload();
     });
-    
-});
 
+});
