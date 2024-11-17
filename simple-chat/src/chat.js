@@ -31,18 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("messages", JSON.stringify(messages));
     };
 
-    const initializeDefaultMessages = () => {
-        const defaultMessages = [
-            {sender: "Собеседник", chat: 'User1', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
-            {sender: "Собеседник", chat: 'User2', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
-            {sender: "Собеседник", chat: 'User3', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
-        ];
-        if (localStorage.length === 0){
-            defaultMessages.forEach((message) => saveMessage(message));
-        }
-    };
+    // const initializeDefaultMessages = () => {
+    //     const defaultMessages = [
+    //         {sender: "Собеседник", chat: 'User1', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+    //         {sender: "Собеседник", chat: 'User2', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+    //         {sender: "Собеседник", chat: 'User3', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+    //     ];
+    //     if (localStorage.length === 0){
+    //         defaultMessages.forEach((message) => saveMessage(message));
+    //     }
+    // };
 
-    initializeDefaultMessages();
+    // initializeDefaultMessages();
     loadMessages();
 
     const sendMessage = () => {

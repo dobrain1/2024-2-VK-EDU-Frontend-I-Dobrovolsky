@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatList = document.getElementById("chat-list-container");
     chatList.innerHTML = ChaList();
 
-    const messages = JSON.parse(localStorage.getItem("messages"));
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
 
     function userMessages(User) {
         return messages.filter(message => message.chat === User);
@@ -40,9 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const User2LastMessageContainer = document.getElementById("chat2-last-message");
     const User3LastMessageContainer = document.getElementById("chat3-last-message");
 
-    const User1LastMessage = User1Messages[User1Messages.length - 1].text ? User1Messages[User1Messages.length - 1].text : "картинка";
-    const User2LastMessage = User2Messages[User2Messages.length - 1].text ? User2Messages[User2Messages.length - 1].text : "картинка";
-    const User3LastMessage = User3Messages[User3Messages.length - 1].text ? User3Messages[User3Messages.length - 1].text : "картинка";
+    const User1LastMessage = User1Messages.length > 0 
+        ? (User1Messages[User1Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
+    const User2LastMessage = User2Messages.length > 0 
+        ? (User2Messages[User2Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
+    const User3LastMessage = User3Messages.length > 0 
+        ? (User3Messages[User3Messages.length - 1].text || "картинка") 
+        : "Нет сообщений";
 
     User1LastMessageContainer.innerText = User1LastMessage;
     User2LastMessageContainer.innerText = User2LastMessage;
@@ -50,11 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shortName = (Message, MessageContainer) => {
         if (Message.length > 8) {
-            MessageContainer.innerText = Message.replace(/\n/g, ' ').slice(0, 8) + "..."
+            MessageContainer.innerText = Message.replace(/\n/g, ' ').slice(0, 8) + "...";
         } else if (!Message) {
-            MessageContainer.innerText = "картинка"
+            MessageContainer.innerText = "картинка";
         } else {
-            MessageContainer.innerText = Message
+            MessageContainer.innerText = Message;
         }
     };
 
@@ -66,11 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const chat2Name = document.getElementById("chat2Name");
     const chat3Name = document.getElementById("chat3Name");
 
-    console.log(chat1Name.innerText)
-
     const shortChatName = (chatContainer) => {
         if (chatContainer.innerText.length > 12) {
-            chatContainer.innerText = chatContainer.innerText.slice(0, 12) + "..."
+            chatContainer.innerText = chatContainer.innerText.slice(0, 12) + "...";
         }
     };
 
@@ -78,5 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
     shortChatName(chat2Name);
     shortChatName(chat3Name);
 
-});
+    const saveMessage = (message) => {
+        const messages = JSON.parse(localStorage.getItem("messages")) || [];
+        messages.push(message);
+        localStorage.setItem("messages", JSON.stringify(messages));
+    };
 
+    const initializeDefaultMessages = () => {
+        const defaultMessages = [
+            {sender: "Собеседник", chat: 'User1', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User2', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+            {sender: "Собеседник", chat: 'User3', text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", time: new Date().toISOString()},
+        ];
+        defaultMessages.forEach((message) => saveMessage(message));
+    };
+
+    document.getElementById('add-default-messages').addEventListener('click', () => {
+        initializeDefaultMessages();
+        location.reload();
+    });
+
+});
