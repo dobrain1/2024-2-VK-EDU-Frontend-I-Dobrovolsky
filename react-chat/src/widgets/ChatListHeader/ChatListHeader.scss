@@ -1,0 +1,19 @@
+@use '../../app/styles/colors.scss' as *;
+
+.chat-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $background-color-2;
+    color: $button-color;
+    min-height: 56px;
+    gap: 10px;
+}
+
+.app-name-container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}

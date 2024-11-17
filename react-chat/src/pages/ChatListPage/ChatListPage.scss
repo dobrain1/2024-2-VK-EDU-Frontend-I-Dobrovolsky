@@ -1,0 +1,25 @@
+@use '../../app/styles/colors.scss' as *;
+
+.main-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $background-color-2;
+    border: 1px solid $border-color;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.new-chat-button-container {
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    right: 600px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 16px;
+    transform: scale(2.5);
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
