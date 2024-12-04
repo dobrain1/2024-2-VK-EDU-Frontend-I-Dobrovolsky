@@ -1,20 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './ChatListContainer.scss'
-import ChatListItem from '../ChatList/ChatListItem';
+import {ChatListItem} from '../../entities';
+import { chatList } from '../../features/mocks/Chats'
 
-export default function ChatListContainer() {
+export const ChatListContainer = () => {
 
-  const chats = [
-    { id: 1, name: "John", lastMessage: 'dkdkdkdk', lastMessageTime:"08:08", isRead: true },
-    { id: 2, name: "Alice", lastMessage: 'allalalala', lastMessageTime:"18:33", isRead: false },
-    { id: 3, name: "Bob", lastMessage: '', lastMessageTime:"02:46", isRead: true },
-  ];
+  const chats = chatList
+
+  const [messages, setMessages] = useState([])
+
+  const getMessages = () => {
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    return messages;
+  }
+
+  useEffect(() => {
+    
+    setMessages(getMessages())
+  
+  }, [])
 
   return (
     <div className='chat-list-container'>
       {chats.map((chat) => {
         return(
-          <ChatListItem chat={chat}/>
+          <ChatListItem chat={chat} messages={messages}/>
         )
       })
       }

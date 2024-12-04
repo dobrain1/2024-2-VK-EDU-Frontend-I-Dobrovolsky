@@ -1,21 +1,34 @@
-import { useState } from 'react'
-import ChatListPage from '../pages/ChatListPage/ChatListPage'
-import ChatPage from '../pages/ChatPage/ChatPage'
-import ErrorPage from '../pages/ErrorPage/ErrorPage'
-import './styles/App.scss'
+import { useReducer, createContext } from 'react'
+import {ChatListPage, ChatPage, ErrorPage} from '../pages'
+import './App.scss'
+
+function pageReducer(state, action) {
+  
+  switch (action.type) {
+    case "NAVIGATE":
+      return { path: action.path, params: action.params || {} };
+    default:
+      console.error("Unknown action type:", action.type);
+      return state;
+  }
+}
+
+export const PageContext = createContext();
 
 function App() {
-  const [page, setPage] = useState("ChatListPage")
+  const [page, dispatch] = useReducer(pageReducer, {path: "ChatListPage",params: {}});
+
+  const routes = {
+    ChatListPage: <ChatListPage />,
+    ChatPage: <ChatPage chatID={page.params.chatId} />,
+    default: <ErrorPage />,
+  };
 
   return (
     <>
-      {page === "ChatListPage" ? 
-        <ChatListPage></ChatListPage> 
-        : page === "ChatPage" ?
-        <ChatPage></ChatPage> 
-        :
-        <ErrorPage></ErrorPage>
-      } 
+      <PageContext.Provider value={{ page: page, dispatch}}>
+        {routes[page.path] || routes.default}
+      </PageContext.Provider> 
     </>
   )
 }

@@ -1,0 +1,20 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.chat-container {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto; 
+    background-color: #e5ddd5;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-container {
+    margin-top: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+}

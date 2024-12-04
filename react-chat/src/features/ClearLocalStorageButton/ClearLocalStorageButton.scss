@@ -1,0 +1,16 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.delete-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    right: 30px;
+    border: none;
+    color: #0088cc;
+    background-color: none;
+    border-radius: 20px;
+    transform: scale(2.5);
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+}

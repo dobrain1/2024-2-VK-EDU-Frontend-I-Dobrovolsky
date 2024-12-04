@@ -1,6 +1,6 @@
 @use '../../shared/consts/colors.scss' as *;
 
-.chat-list-header {
+.chat-header {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -12,8 +12,28 @@
     gap: 10px;
 }
 
-.app-name-container {
+.user-container {
     display: flex;
     justify-content: center;
     gap: 6px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.chat-name {
+    font-size: 16px;
+}
+
+.last-seen {
+    font-size: 12px;
+    color: $last-seen-color;
+}
+
+.functional-icons {
+    display: flex;
+    align-items: center;
 }

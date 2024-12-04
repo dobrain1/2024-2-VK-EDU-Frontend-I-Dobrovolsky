@@ -1,16 +1,21 @@
 import React from 'react'
-import BurgerButton from '../../shared/buttons/BurgerButton/BurgerButton'
-import SearchButton from '../../shared/buttons/SearchButton/SearchButton'
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import {Button} from '../../shared';
 import './ChatListHeader.scss'
 
-export default function ChatListHeader() {
+export const ChatListHeader = () => {
   return (
     <div className='chat-list-header'>
-        <BurgerButton></BurgerButton>
-        <div className="app-name-container">
-            <h2>Messanger app</h2>
-        </div>
-        <SearchButton></SearchButton>
+      <Button place={'header'}>
+        <MenuIcon></MenuIcon>
+      </Button>     
+      <div className="app-name-container">
+        <h2>Messanger app</h2>
+      </div>
+      <Button place={'header'}>
+        <SearchIcon></SearchIcon>
+      </Button>   
     </div>
   )
 }
