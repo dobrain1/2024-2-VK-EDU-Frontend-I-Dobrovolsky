@@ -10,10 +10,10 @@
     color: $button-color;
     min-height: 56px;
     gap: 10px;
-}
 
-.app-name-container {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
+    .app-name-container {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+    }
 }

@@ -59,34 +59,34 @@ export const ChatForm = ({chatID, updateMessages}) => {
 
   return (
     <form className='message-form' onSubmit={handleSubmit}>
-        <textarea 
-          className="message-input" 
-          placeholder="Введите сообщение" 
-          rows="1"
-          value={messageText}
-          onKeyDown={handleKeyDown}
-          onChange={(e) => setMessageText(e.target.value)}
-        ></textarea>
-        <input 
-          type="file"
-          ref={fileInputRef}
-          className="image-input"
-          accept='image/*"'
-          onChange={handleFileChange}
-        />
-        <Button 
-          type={"button"}
-          place={'form'}
-          customClickEvent={openFilePicker}
-        >
-            <ImageIcon></ImageIcon>
-        </Button>
-        <Button 
-          type={"submit"}
-          place={'form'}
-        >
-            <SendIcon></SendIcon>
-        </Button>
+      <textarea 
+        className="message-input" 
+        placeholder="Введите сообщение" 
+        rows="1"
+        value={messageText}
+        onKeyDown={handleKeyDown}
+        onChange={(e) => setMessageText(e.target.value)}
+      ></textarea>
+      <input 
+        type="file"
+        ref={fileInputRef}
+        className="message-image-input"
+        accept='image/*"'
+        onChange={handleFileChange}
+      />
+      <Button 
+        type={"button"}
+        place={'form'}
+        customClickEvent={openFilePicker}
+      >
+        <ImageIcon></ImageIcon>
+      </Button>
+      <Button 
+        type={"submit"}
+        place={'form'}
+      >
+        <SendIcon></SendIcon>
+      </Button>
     </form>
   )
 }

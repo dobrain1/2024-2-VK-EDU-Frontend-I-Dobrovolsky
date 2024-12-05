@@ -8,16 +8,18 @@ export const Message = ({message}) => {
 
   return (
     <div className={message.sender === "you" ? 'message sender show animate' : 'message receiver show animate'}>
-      {message.text && message.image ? (
-        <>
-          <img src={message.image} alt="Image"/>
+      <div className='message-content'>
+        {message.text && message.image ? (
+          <>
+            <img src={message.image} alt="Image"/>
+            <p>{message.text}</p>
+          </>
+        ) : message.text ? (
           <p>{message.text}</p>
-        </>
-      ) : message.text ? (
-        <p>{message.text}</p>
-      ) : (
-        <img src={message.image} alt="Image"/>
-      )}
+        ) : (
+          <img src={message.image} alt="Image"/>
+        )}
+      </div>
       <div className="message-info">
           <span className="message-time">{time}</span>
           <DoneAll className="message-check"></DoneAll>

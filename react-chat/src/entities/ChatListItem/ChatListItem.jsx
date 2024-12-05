@@ -28,7 +28,7 @@ export const ChatListItem = ({chat, messages}) => {
         <AccountCircleIcon sx={{ fontSize: 40 }}></AccountCircleIcon>
         <div className="chat-info">
           <div className="chat-name-wrapper">
-            <span className='chat-name'>
+            <span className='chat-item-name'>
                 {
                   chat.name.length > 15 
                   ?
@@ -81,7 +81,7 @@ export const ChatListItem = ({chat, messages}) => {
         <span className="message-count">
           {messageCount}
         </span>
-        <div className="status-time">
+        <div className="status-item">
           {
             chat.isRead 
             ?

@@ -4,17 +4,17 @@
     flex: 1;
     padding: 15px;
     overflow-y: auto; 
-    background-color: #e5ddd5;
+    background-color: $chat-container-background-color;
     scrollbar-width: none;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
-}
 
-.messages-container {
-    margin-top: auto; 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 6px;
+    .messages-container {
+        margin-top: auto; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 6px;
+    }
 }

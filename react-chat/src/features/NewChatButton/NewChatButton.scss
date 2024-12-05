@@ -1,51 +1,53 @@
 @use '../../shared/consts/colors.scss' as *;
 
-.new-chat-button-container {
-    position: fixed;
-    z-index: 100;
-    bottom: 30px;
-    right: 600px;
-    border: none;
-    background-color: $border-color;
-    border-radius: 20px;
-    transform: scale(2.5);
-    cursor: pointer;
-    animation: pulse 2s infinite;
-    display: flex;
-
-    &:hover {
-        animation: none;
+.new-chat {
+    &-button-container {
+        position: fixed;
+        z-index: 100;
+        bottom: 30px;
+        right: 600px;
+        border: none;
+        background-color: $border-color;
+        border-radius: 20px;
+        transform: scale(2.5);
+        cursor: pointer;
+        animation: pulse 2s infinite;
+        display: flex;
+    
+        &:hover {
+            animation: none;
+        }
+    
+        @-webkit-keyframes pulse {
+            0% {
+              -webkit-box-shadow: 0 0 0 0 $webkit-box-shadow-color;
+            }
+            70% {
+                -webkit-box-shadow: 0 0 0 10px $box-shadow-color;
+            }
+            100% {
+                -webkit-box-shadow: 0 0 0 0 $box-shadow-color;
+            }
+        }
+    
+        @keyframes pulse {
+            0% {
+              -moz-box-shadow: 0 0 0 0 $webkit-box-shadow-color;
+              box-shadow: 0 0 0 0 $webkit-box-shadow-color;
+            }
+            70% {
+                -moz-box-shadow: 0 0 0 10px $box-shadow-color;
+                box-shadow: 0 0 0 10px $box-shadow-color;
+            }
+            100% {
+                -moz-box-shadow: 0 0 0 0 $box-shadow-color;
+                box-shadow: 0 0 0 0 $box-shadow-color;
+            }
+        }
     }
-
-    @-webkit-keyframes pulse {
-        0% {
-          -webkit-box-shadow: 0 0 0 0 $webkit-box-shadow-color;
-        }
-        70% {
-            -webkit-box-shadow: 0 0 0 10px $box-shadow-color;
-        }
-        100% {
-            -webkit-box-shadow: 0 0 0 0 $box-shadow-color;
-        }
+    
+    &-icon {
+        color: $background-color-2;
+        margin: 4px;
     }
-
-    @keyframes pulse {
-        0% {
-          -moz-box-shadow: 0 0 0 0 $webkit-box-shadow-color;
-          box-shadow: 0 0 0 0 $webkit-box-shadow-color;
-        }
-        70% {
-            -moz-box-shadow: 0 0 0 10px $box-shadow-color;
-            box-shadow: 0 0 0 10px $box-shadow-color;
-        }
-        100% {
-            -moz-box-shadow: 0 0 0 0 $box-shadow-color;
-            box-shadow: 0 0 0 0 $box-shadow-color;
-        }
-    }
-}
-
-.new-chat-icon {
-    color: $background-color-2;
-    margin: 4px;
 }
