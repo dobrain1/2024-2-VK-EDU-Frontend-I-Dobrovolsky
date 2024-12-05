@@ -1,0 +1,29 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.message {
+    &-form {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-top: 1px solid $border-color;
+        background-color: $message-form-background-color;
+        gap: 4px;
+    }
+    
+    &-input {
+        flex-grow: 1;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid $border-color;
+        color: $message-color;
+        resize: none;
+        outline: none;
+        font-size: 14px;
+        scrollbar-width: none;
+        background-color: $message-form-background-color;
+    }
+
+    &-image-input {
+        display: none;
+    }
+}

@@ -1,0 +1,12 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.main-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $background-color-2;
+    border: 1px solid $border-color;
+    overflow: hidden;
+    border-radius: 20px;
+}
