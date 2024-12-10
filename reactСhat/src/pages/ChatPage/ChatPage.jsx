@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom';
 import './ChatPage.scss'
 import {ChatHeader, MessagesList} from '../../widgets'
 import {ChatForm, ClearLocalStorageButton} from '../../features'
 
-export const ChatPage = ({chatID}) => {
+export const ChatPage = () => {
+
+  const { chatId } = useParams();
+
+  const chatID = +chatId
 
   const [messages, setMessages] = useState([])
 

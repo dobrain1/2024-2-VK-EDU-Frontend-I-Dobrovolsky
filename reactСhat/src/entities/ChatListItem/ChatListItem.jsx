@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import {useContext} from 'react'
+import {useNavigate} from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ImageIcon from'@mui/icons-material/Image'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import DoneIcon from '@mui/icons-material/Done';
-import { PageContext } from '../../app/App';
 import './ChatListItem.scss'
 
 export const ChatListItem = ({chat, messages}) => {
-  const { dispatch } = useContext(PageContext);
+  
+  let navigate = useNavigate()
 
   const [messageCount, setMessageCount] = useState(0)
 
@@ -23,7 +23,7 @@ export const ChatListItem = ({chat, messages}) => {
   }, [lastMessage])
 
   return (
-    <div id={chat.id} className="chat-item-container" onClick={() => dispatch({ type: "NAVIGATE", path: "ChatPage", params: { chatId: chat.id } })}>
+    <div id={chat.id} className="chat-item-container" onClick={() => navigate(`/chat/${chat.id}`)}>
       <div className="left-container">
         <AccountCircleIcon sx={{ fontSize: 40 }}></AccountCircleIcon>
         <div className="chat-info">
