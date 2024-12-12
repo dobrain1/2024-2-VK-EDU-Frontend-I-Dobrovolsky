@@ -1,0 +1,26 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.header-button {
+    color: $button-color;
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 6px;
+    display: flex;
+
+    &:hover {
+        background-color: $background-color-3-hover;
+    }
+}
+
+.form-button {
+    font-size: 24px;
+    color: $background-color-2;
+    border-radius: 20px;
+    padding: 6px;
+    display: flex;
+
+    &:hover {
+        box-sizing: border-box;
+        background-color: $form-buttons-hover-color;
+    }
+}

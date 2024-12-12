@@ -1,0 +1,11 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.chat-list-container {
+    flex: 1;
+    padding: 12px;
+    overflow-y: scroll; 
+    background-color: $chat-container-background-color;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    color: $message-color   ;
+}

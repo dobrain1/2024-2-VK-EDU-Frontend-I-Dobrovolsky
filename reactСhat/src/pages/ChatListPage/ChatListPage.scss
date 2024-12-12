@@ -1,0 +1,11 @@
+@use '../../shared/consts/colors.scss' as *;
+
+.chat-list-main-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border: 1px solid $border-color;
+    overflow: hidden;
+    border-radius: 20px;
+}
