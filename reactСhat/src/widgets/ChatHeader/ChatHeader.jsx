@@ -36,7 +36,7 @@ export const ChatHeader = ({chatID}) => {
                 <ArrowBackIcon></ArrowBackIcon>
             </Button>
             <div className="user-container">
-                <AccountCircleIcon sx={{ fontSize: 44 }}></AccountCircleIcon>
+                <AccountCircleIcon sx={{ fontSize: 40 }}></AccountCircleIcon>
                 <div className="user-info">
                     <h2 className="chat-name">
                         <span>

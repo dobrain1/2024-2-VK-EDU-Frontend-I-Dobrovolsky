@@ -6,6 +6,7 @@
     align-items: center;
     border-radius: 20px;
     padding: 8px;
+    cursor: pointer;
 
     &:hover {
         background-color: $chat-item-container-hover-background-color;

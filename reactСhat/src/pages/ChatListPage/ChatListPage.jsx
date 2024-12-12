@@ -7,7 +7,7 @@ export const ChatListPage = () => {
   
   return (
     <>
-      <div className="main-container">
+      <div className="chat-list-main-container">
         <ChatListHeader/>
         <ChatListContainer/>
         <NewChatButton></NewChatButton>

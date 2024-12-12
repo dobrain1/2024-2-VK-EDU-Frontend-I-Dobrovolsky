@@ -1,6 +1,6 @@
 import React from 'react'
-import {ChatListPage, ChatPage, ErrorPage} from '../../pages'
-import { createHashRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+import {ChatListPage, ChatPage, ErrorPage, EditProfilePage} from '../../pages'
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const router = createHashRouter([
     {
@@ -13,7 +13,12 @@ const router = createHashRouter([
       errorElement: <ErrorPage />,
       path: '/chat/:chatId'
     },
-
+    {
+      element: <EditProfilePage />,
+      errorElement: <ErrorPage />,
+      path: '/profile/edit'
+      // path: '/profile/edit/:profileId'
+    },
 ]);
 
 export const AppRouter = () => {

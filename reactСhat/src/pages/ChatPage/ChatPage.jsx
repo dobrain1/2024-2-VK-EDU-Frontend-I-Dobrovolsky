@@ -33,7 +33,7 @@ export const ChatPage = () => {
 
   return (
     <>
-      <div className='main-container'>
+      <div className='chat-page-main-container'>
         <ChatHeader chatID={chatID}></ChatHeader>
         <MessagesList messages={filteredMessages}></MessagesList>
         <ChatForm chatID={chatID} updateMessages={updateMessages}></ChatForm>

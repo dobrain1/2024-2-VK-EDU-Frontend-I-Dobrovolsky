@@ -1,20 +1,21 @@
 import React from 'react'
 import './Button.scss'
 
-export const Button = ({customClickEvent, children, place, type}) => {
+export const Button = ({customClickEvent, children, place, type, className}) => {
 
   return (
     <button
       type={type} 
-      className={place === 'header' 
+      className={
+        (place === 'header'
         ? 
-        'header-button' 
+        `header-button ${className}` 
         : 
         place === 'form'
         ?
-        'form-button'
+        `form-button ${className}`
         :
-        'header-button' 
+        `header-button ${className}`)
         } 
       onClick={customClickEvent}
     >
